@@ -1,7 +1,7 @@
 pipeline {
-    agent none
+    agent any
     environment {
-        imageName = 'YOUR_IMAGE_NAME'
+        imageName = 'demo-serive'
         port = 80
     }
 
@@ -15,7 +15,7 @@ pipeline {
        }
 
        stage('Package') {
-          agent {label 'mgr1'}
+        //   agent {label 'mgr1'}
           steps {
             withCredentials(
                 [usernamePassword(
@@ -31,7 +31,7 @@ pipeline {
        }
 
        stage('Deploy') {
-          agent {label 'mgr1'}
+        //   agent {label 'mgr1'}
           steps {
               script {
                   try {
